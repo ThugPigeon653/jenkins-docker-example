@@ -1,7 +1,9 @@
-
 pipeline {
     agent {
-        docker { image 'nginx:alpine',  args '-w /workspace' }
+        docker {
+            image 'nginx:alpine'
+            args '-w /workspace'
+        }
     }
     stages {
         stage('Build') {
