@@ -1,11 +1,11 @@
 pipeline {
-    agent any
-
+    agent {
+        docker { image 'node:18.17.1-alpine3.18' }
+    }
     stages {
-        stage('Build') {
+        stage('Test') {
             steps {
-                // Your script here
-                echo 'Hello, this is your build and run stage.'
+                echo "Success"
             }
         }
     }
