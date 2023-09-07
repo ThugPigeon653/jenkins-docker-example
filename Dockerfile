@@ -1,13 +1,5 @@
-FROM node:14
-#
-WORKDIR /app
+FROM nginx:alpine
 
-COPY package*.json ./
+COPY . /usr/share/nginx/html
 
-RUN npm install
-
-COPY . .
-
-EXPOSE 3000
-
-CMD ["node", "app.js"]
+CMD ["nginx", "-g", "daemon off;"]
