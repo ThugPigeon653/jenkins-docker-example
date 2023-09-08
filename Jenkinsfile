@@ -2,7 +2,6 @@ pipeline {
     agent {
         docker {
             image 'nginx:alpine'
-            dir '/workspace'
         }
     }
     stages {
