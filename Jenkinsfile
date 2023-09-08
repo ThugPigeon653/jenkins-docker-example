@@ -4,5 +4,4 @@ pipeline {
         docker {
             image 'nginx:alpine'
         }
-        docker { image 'nginx:alpine' }
     }
