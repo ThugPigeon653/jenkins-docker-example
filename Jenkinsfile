@@ -1,15 +1,13 @@
 pipeline {
-    agent {
-        docker { image 'nginx:alpine' }
-    }
-    stages {
-        stage('Build') {
-            steps {
-                script {
-                    def workspacePath = pwd() // Get the workspace path
-                    echo "Workspace path: ${workspacePath}"
+        agent { docker { image 'maven:3.3.3' } }
+        stages {
+            stage('build') {
+                environment {
+                  HOME="."
                 }
-            }
+                steps {
+                    sh 'mvn --version'
+                }
+           }
         }
     }
-}
