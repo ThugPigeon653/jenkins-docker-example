@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'nginx:alpine'
-            args 'w'+pwd()
+            args 'w'+args '-w C:\\Users\\LNeil\\Documents\\Programming\\jenkins-destination'
         }
     }
     stages {
