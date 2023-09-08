@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'nginx:alpine'
-            args '-w c://users/lneil/documents/programming/jenkinsi-destination' // Pass the workspace as an environment variable
+            args '-w /workspace' // Pass the workspace as an environment variable
         }
     }
     stages {
