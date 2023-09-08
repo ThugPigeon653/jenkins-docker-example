@@ -1,7 +1,3 @@
 
-pipeline {
-    agent {
-        docker {
-            image 'nginx:alpine'
-        }
-    }
+pipeline { agent { docker { image 'nginx:alpine' } } }
+    
