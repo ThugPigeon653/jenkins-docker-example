@@ -2,13 +2,16 @@ pipeline {
     agent {
         docker {
             image 'nginx:alpine'
-            args '-w C:\\Users\\LNeil\\Documents\\Programming\\jenkins-destination'
+            args '-e WORKSPACE=/workspace' // Pass the workspace as an environment variable
         }
     }
     stages {
         stage('Build') {
             steps {
-                echo "Success"
+                script {
+                    def workspacePath = pwd() // Get the workspace path
+                    echo "Workspace path: ${workspacePath}"
+                }
             }
         }
     }
