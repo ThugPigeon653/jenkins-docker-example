@@ -6,9 +6,7 @@ pipeline {
                 script {
                     def workspacePath = pwd()
                     // Use workspacePath as the absolute working directory
-                    docker.image('nginx:alpine').inside("-w $workspacePath") {
-                        // Your Docker build and run steps here
-                    }
+                    docker.image('nginx:alpine').inside("-w $workspacePath") {}
                 }
             }
         }
