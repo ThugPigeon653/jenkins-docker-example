@@ -1,13 +1,15 @@
 pipeline {
-    agent {
-        docker {
-            image 'nginx:alpine'
-        }
-    }
+    agent any
     stages {
-        stage('Build') {
+        stage('Docker Build and Run') {
             steps {
-                echo 'Success'
+                script {
+                    def workspacePath = pwd()
+                    // Use workspacePath as the absolute working directory
+                    docker.image('nginx:alpine').inside("-w $workspacePath") {
+                        // Your Docker build and run steps here
+                    }
+                }
             }
         }
     }
